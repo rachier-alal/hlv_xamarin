@@ -15,24 +15,40 @@ namespace Hublov.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Swiper : INotifyPropertyChanged
     {
-        ObservableCollection<string> cartoes;
-        public ObservableCollection<string> Cartoes
-        {
-            get { return cartoes; }
-            set { cartoes = value; RaisePropertyChanged(); }
-        }
-        public Swiper()
-        {
-            cartoes = new ObservableCollection<string>
+        private ObservableCollection<string> cartoes = new ObservableCollection<string>
             {
                 "Nintendo Switch",
                 "Playstation 4",
                 "Xbox One",
-                "PC"
+                "something",
+                "cool",
+                "just",
+                "happened",
+                "so",
+                "ima",
+                "stop ",
+                "here"
             };
+    
+        public ObservableCollection<string> Cartoes
+        {
+            get => cartoes;
+            set
+            {
+                if (cartoes == value)
+                    return;
+                cartoes = value;
+                OnPropertyChanged(nameof(cartoes));
+            }
+        }
+        public Swiper()
+        {
+            InitializeComponent();
+            Title = "The Hub";
+            Cartoes = new ObservableCollection<string>(Cartoes);
+            BindingContext = this;
         }
         // INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        void RaisePropertyChanged([CallerMemberName] string name = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        //public event PropertyChangedEventHandler PropertyChanged;
     }
 }

@@ -15,7 +15,7 @@
 
                 <swipecards:CardStackView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="{Binding}" VerticalOptions="Center" HorizontalOptions="Center" />
+                        <Label Text="{Binding}" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
                     </DataTemplate>
                 </swipecards:CardStackView.ItemTemplate>
 

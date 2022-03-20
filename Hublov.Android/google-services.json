@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "711693219316",
+    "project_id": "hubforms-a8b20",
+    "storage_bucket": "hubforms-a8b20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711693219316:android:a959a3a436d6bf4500b5a1",
+        "android_client_info": {
+          "package_name": "com.companyname.hublov"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711693219316-86sj1nj380g7dgog5en0vvkrkmm7v1tm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.companyname.hublov",
+            "certificate_hash": "891fff70bf029c5149d4b8e46c52b8b4dab2d5a7"
+          }
+        },
+        {
+          "client_id": "711693219316-f0e8gqjjp895vkvcp7f85f6327v7ct55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDld0b7cVdAwVwUN68UvHUj5cUqbGx25rI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711693219316-f0e8gqjjp895vkvcp7f85f6327v7ct55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

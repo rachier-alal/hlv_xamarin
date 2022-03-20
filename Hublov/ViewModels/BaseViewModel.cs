@@ -39,6 +39,8 @@ namespace Hublov.ViewModels
             return true;
         }
 
+        public IPageService PageService { get; set; }
+
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")

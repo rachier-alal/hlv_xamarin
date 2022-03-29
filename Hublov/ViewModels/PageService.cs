@@ -26,6 +26,7 @@ namespace Hublov.ViewModels
         public async Task DisplayAlert(string title, string message, string cancel)
         {
             await page.DisplayAlert(title, message, cancel);
+
         }
         public async Task DisplayAlert(string title, string message, string confirm, string cancel)
         {

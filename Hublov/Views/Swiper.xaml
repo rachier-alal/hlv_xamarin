@@ -4,9 +4,7 @@
              xmlns:swipecards="clr-namespace:SwipeCards.Controls;assembly=SwipeCards.Controls"
              Title="{Binding Title}"
              x:Class="Hublov.Views.Swiper">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
-    </ContentPage.ToolbarItems>
+   
     
     <swipecards:CardStackView
                 x:Name="CardStackView"

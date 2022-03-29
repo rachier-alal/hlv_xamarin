@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Hublov.Views.Auth;
 using System.Collections.Generic;
 using System.Text;
 
@@ -91,13 +92,16 @@ namespace Hublov.ViewModels.Auth
             RegisterCommand = new Command(SignUpButton_Clicked);
             LoginCommand = new Command(LoginButton_Clicked);
         }
+
+
         /// <summary>
         /// Method called when Login button is clicked
         /// </summary>
         /// <param name="obj"></param>
-        private void LoginButton_Clicked(object obj)
+        private async void LoginButton_Clicked(object obj)
         {
-            throw new NotImplementedException();
+            await PageService.PushAsync(new LoginPage());
+            //Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
         #endregion
 
@@ -108,7 +112,7 @@ namespace Hublov.ViewModels.Auth
         public async void SignUpButton_Clicked()
         {
 
-            if (!(string.IsNullOrEmpty(Email) && string.IsNullOrEmpty(Username) && string.IsNullOrEmpty(Password)))
+            if (!(string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password)))
             {
                 ///Dependency Service for firebase native authentication 
                 var token = await DependencyService.Get<IFirebaseAuthenticator>().SignupWithEmailPassword(Email, Password);

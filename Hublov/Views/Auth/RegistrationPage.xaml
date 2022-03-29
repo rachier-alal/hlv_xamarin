@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:viewModel="clr-namespace:Hublov.ViewModels.Auth"
-             mc:Ignorable="d" BackgroundColor="Gold"
+             mc:Ignorable="d" BackgroundColor="SteelBlue"
              x:Class="Hublov.Views.Auth.RegistrationPage">
     
     <ContentPage.BindingContext>
@@ -13,12 +13,12 @@
     
     <ContentPage.Content>
         <StackLayout Padding="10" Margin="0,150,0,0">
-            <Entry  Placeholder="username" Text="{Binding Username}" />
-            <Entry Placeholder="Email" Text="{Binding Email}" TextColor="White"/>
-            <Entry Placeholder="Password" Text="{Binding Password}" />
-            <Entry Placeholder="Confirm Password" Text="Binding ConfirmPassword"/>
-            <Button Text="Register" />
-            <Button Text="Login" />
+            <Entry  Placeholder="username" Text="{Binding Username}" TextColor="Black" />
+            <Entry Placeholder="Email" Text="{Binding Email}" TextColor="Black"/>
+            <Entry Placeholder="Password" Text="{Binding Password}" TextColor="Black" />
+            <Entry Placeholder="Confirm Password" Text="{Binding ConfirmPassword}" TextColor="Black"/>
+            <Button Text="Register" Command="{Binding RegisterCommand}"/>
+            <Button Text="Login" Command="{Binding LoginCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

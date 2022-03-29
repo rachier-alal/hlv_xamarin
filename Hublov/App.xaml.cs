@@ -1,5 +1,7 @@
 ﻿using Hublov.Services;
+using Hublov.ViewModels.Auth;
 using Hublov.Views;
+using Hublov.Views.Auth;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,7 +17,11 @@ namespace Hublov
 
             DependencyService.Register<MockDataStore>();
             //MainPage = new AppShell();
-            MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new NavigationPage(new Swiper());
+            
+            //    MainPage = new NavigationPage(new Swiper());
+            //else
+                MainPage = new NavigationPage(new RegistrationPage());
         }
 
         protected override void OnStart()

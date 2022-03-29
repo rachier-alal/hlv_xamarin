@@ -21,16 +21,17 @@ namespace Hublov.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            
             InitFirebaseAuth();
+
             LoadApplication(new App());
         }
-        private void InitFirebaseAuth()
+        public void InitFirebaseAuth()
         {
             var options = new FirebaseOptions.Builder()
                 .SetProjectId("hubforms-a8b20").SetApplicationId("1:711693219316:android:a959a3a436d6bf4500b5a1")
-                .SetApiKey("89:1f:ff:70:bf:02:9c:51:49:d4:b8:e4:6c:52:b8:b4:da:b2:d5:a7")
-                .SetDatabaseUrl("xxxxxxx")
-                .SetStorageBucket("xxxxxxxx").Build();
+                .SetApiKey("AIzaSyDld0b7cVdAwVwUN68UvHUj5cUqbGx25rI")
+                .Build();
             if (app == null)
                 app = FirebaseApp.InitializeApp(this, options);
             Auth = FirebaseAuth.GetInstance(app);

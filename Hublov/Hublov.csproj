@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Forms.Controls.SwipeCards" Version="0.4.0" />
+    <PackageReference Include="Plugin.Toast" Version="2.2.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>

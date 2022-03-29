@@ -6,8 +6,6 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Hublov.Views.Auth;
-using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace Hublov.ViewModels.Auth
 {
@@ -80,21 +78,34 @@ namespace Hublov.ViewModels.Auth
         #region Methods
 
 
-        private void OnRegisterButtonClicked()
+        private async void OnRegisterButtonClicked()
         {
-            PageService.PushAsync(new RegistrationPage());
+            //Shell.Current.GoToAsync($"//{nameof(RegistrationPage)}");
+            await Shell.Current.GoToAsync($"{nameof(RegistrationPage)}");
         }
 
         private async void OnLoginButtonClicked()
         {
-            if (!(string.IsNullOrEmpty(Email) && string.IsNullOrEmpty(Password)))
-            {
-                var token = await DependencyService.Get<IFirebaseAuthenticator>().LoginWithEmailPassword(Email, Password);
-                await PageService.DisplayAlert("Success", "User Created with token " + token, "Ok");
+            try { 
+                if (!(string.IsNullOrEmpty(Email) && string.IsNullOrEmpty(Password)))
+                {
+                    
+                    var token = await DependencyService.Get<IFirebaseAuthenticator>().LoginWithEmailPassword(Email, Password);
+                    if (token != null )
+                    {
+                        await Shell.Current.GoToAsync(nameof(Swiper));
+                    }
+                    //await PageService.DisplayAlert("Success", "User Created with token ", "Ok");
+
+                }
+                else
+                {
+                    await PageService.DisplayAlert("Error", "Please fill all fields", "Ok");
+                }
             }
-            else
+            catch (Exception e)
             {
-                await PageService.DisplayAlert("Error", "Please fill all fields", "Ok");
+               
             }
         }
 

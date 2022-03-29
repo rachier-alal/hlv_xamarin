@@ -16,7 +16,7 @@ using Xamarin.Forms;
 using Hublov.Droid.Implementations;
 using Android.Gms.Extensions;
 
-[assembly: Dependency(typeof(FirebaseAuthenticator))]
+[assembly: Dependency(typeof(Hublov.Droid.Implementations.FirebaseAuthenticator))]
 namespace Hublov.Droid.Implementations
 {
     public class FirebaseAuthenticator : IFirebaseAuthenticator
@@ -30,7 +30,7 @@ namespace Hublov.Droid.Implementations
         public async Task<string> LoginWithEmailPassword(string email, string password)
         {
             var user = await MainActivity.Auth.SignInWithEmailAndPasswordAsync(email, password);
-            var token = await (FirebaseAuth.Instance.CurrentUser.GetIdToken(false).AsAsync<GetTokenResult>());
+            var token = await FirebaseAuth.Instance.CurrentUser.GetIdToken(false).AsAsync<GetTokenResult>();
 
             return token.Token;
         }
@@ -45,7 +45,7 @@ namespace Hublov.Droid.Implementations
         public async Task<string> SignupWithEmailPassword(string email, string password)
         {
             var user = await MainActivity.Auth.CreateUserWithEmailAndPasswordAsync(email, password);
-            var token = await(FirebaseAuth.Instance.CurrentUser.GetIdToken(false).AsAsync<GetTokenResult>());
+            var token = await FirebaseAuth.Instance.CurrentUser.GetIdToken(false).AsAsync<GetTokenResult>();
             return token.Token;
         }
     }

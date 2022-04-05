@@ -6,11 +6,13 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Hublov.Views.Auth;
+using System.Threading.Tasks;
 
 namespace Hublov.ViewModels.Auth
 {
     public class LoginPageViewModel : BaseViewModel
     {
+        public INavigation Navigation { get; set; }
         #region Fields
         private string _email;
         private string _password;
@@ -66,11 +68,12 @@ namespace Hublov.ViewModels.Auth
         /// Initializes Commands and page Services 
         /// </summary>
         #region Constructors
-        public LoginPageViewModel()
+        public LoginPageViewModel(INavigation navigation)
         {
+            this.Navigation = navigation;
+            this.RegisterCommand = new Command(async () => await RegisterButtonClicked());
             PageService = new PageService();
             LoginCommand = new Command(OnLoginButtonClicked);
-            RegisterCommand = new Command(OnRegisterButtonClicked);
         }
 
         #endregion
@@ -78,10 +81,9 @@ namespace Hublov.ViewModels.Auth
         #region Methods
 
 
-        private async void OnRegisterButtonClicked()
+        private async Task RegisterButtonClicked()
         {
-            //Shell.Current.GoToAsync($"//{nameof(RegistrationPage)}");
-            await Shell.Current.GoToAsync($"{nameof(RegistrationPage)}");
+            await Navigation.PushAsync(new NewItemPage());
         }
 
         private async void OnLoginButtonClicked()
@@ -93,7 +95,8 @@ namespace Hublov.ViewModels.Auth
                     var token = await DependencyService.Get<IFirebaseAuthenticator>().LoginWithEmailPassword(Email, Password);
                     if (token != null )
                     {
-                        await Shell.Current.GoToAsync(nameof(Swiper));
+                        //await Shell.Current.GoToAsync(nameof(Swiper));
+                        await Navigation.PushAsync(new AboutPage());
                     }
                     //await PageService.DisplayAlert("Success", "User Created with token ", "Ok");
 

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using Hublov.ViewModels.Auth;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +10,8 @@ namespace Hublov.Views.Auth
         public RegistrationPage()
         {
             InitializeComponent();
+            BindingContext = new RegisterViewPageModel(Navigation);
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

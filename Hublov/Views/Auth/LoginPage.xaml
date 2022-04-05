@@ -5,10 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModel="clr-namespace:Hublov.ViewModels.Auth"
              x:Class="Hublov.Views.Auth.LoginPage">
-    
-    <ContentPage.BindingContext>
-        <viewModel:LoginPageViewModel/>
-    </ContentPage.BindingContext>
+ 
     
     <ContentPage.Content>
         <AbsoluteLayout BackgroundColor="LightGoldenrodYellow">
@@ -71,10 +68,11 @@
             <StackLayout   AbsoluteLayout.LayoutFlags="PositionProportional" 
                        AbsoluteLayout.LayoutBounds="0.5,0.75,350,50" >
                 <Button Text="Login"  Command="{Binding LoginCommand}"
-                        BackgroundColor="LightSteelBlue" />
+                        BackgroundColor="LightSteelBlue" CornerRadius="40"/>
 
                 <Button Text="Sign up" 
                 Command="{Binding RegisterCommand}"
+                        CornerRadius="40"
                 BackgroundColor="Black" />
 
 

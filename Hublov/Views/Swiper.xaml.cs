@@ -46,6 +46,7 @@ namespace Hublov.Views
             InitializeComponent();
             Title = "The Hub";
             Cartoes = new ObservableCollection<string>(Cartoes);
+            NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = this;
         }
         // INotifyPropertyChanged

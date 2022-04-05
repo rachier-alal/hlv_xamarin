@@ -4,11 +4,13 @@ using Xamarin.Forms;
 using Hublov.Views.Auth;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Hublov.ViewModels.Auth
 {
     public class RegisterViewPageModel : BaseViewModel
     {
+        public INavigation Navigation { get; set; }
         #region Fields
         private string _email;
 
@@ -17,6 +19,7 @@ namespace Hublov.ViewModels.Auth
         private string _password;
 
         private string _confirmPassword;
+
 
         #endregion
         #region Properties
@@ -86,11 +89,12 @@ namespace Hublov.ViewModels.Auth
         #endregion
 
         #region Constructors 
-        public RegisterViewPageModel()
+        public RegisterViewPageModel(INavigation navigation)
         {
+            this.Navigation = navigation;
+            this.LoginCommand = new Command(async () => await LoginButton_Clicked());
             PageService = new PageService();
             RegisterCommand = new Command(SignUpButton_Clicked);
-            LoginCommand = new Command(LoginButton_Clicked);
         }
 
 
@@ -98,10 +102,9 @@ namespace Hublov.ViewModels.Auth
         /// Method called when Login button is clicked
         /// </summary>
         /// <param name="obj"></param>
-        private async void LoginButton_Clicked(object obj)
+        private async Task LoginButton_Clicked()
         {
-            await PageService.PushAsync(new LoginPage());
-            //Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+            await Navigation.PushAsync(new LoginPage());
         }
         #endregion
 
@@ -111,16 +114,26 @@ namespace Hublov.ViewModels.Auth
         /// </summary>
         public async void SignUpButton_Clicked()
         {
-
-            if (!(string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password)))
+            try
             {
-                ///Dependency Service for firebase native authentication 
-                var token = await DependencyService.Get<IFirebaseAuthenticator>().SignupWithEmailPassword(Email, Password);
-                await PageService.DisplayAlert("Success", "User Created with token " + token, "Ok");
+                if (!(string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password)))
+                {
+                    ///Dependency Service for firebase native authentication 
+                    var token = await DependencyService.Get<IFirebaseAuthenticator>().SignupWithEmailPassword(Email, Password);
+                    await PageService.DisplayAlert("Success", "User Created with token " + token, "Ok");
+                    if(token != null)
+                    {
+                        await Navigation.PushAsync(new RegistrationPage());
+                    }
+                }
+                else
+                {
+                    await PageService.DisplayAlert("Error", "Please fill all fields", "Ok");
+                }
             }
-            else
+            catch (Exception e)
             {
-                await PageService.DisplayAlert("Error", "Please fill all fields", "Ok");
+
             }
 
         }

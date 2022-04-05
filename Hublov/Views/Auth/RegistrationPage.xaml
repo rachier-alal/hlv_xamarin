@@ -7,9 +7,7 @@
              mc:Ignorable="d" BackgroundColor="SteelBlue"
              x:Class="Hublov.Views.Auth.RegistrationPage">
     
-    <ContentPage.BindingContext>
-        <viewModel:RegisterViewPageModel/>
-    </ContentPage.BindingContext>
+ 
     
     <ContentPage.Content>
         <StackLayout Padding="10" Margin="0,150,0,0">
@@ -17,8 +15,10 @@
             <Entry Placeholder="Email" Text="{Binding Email}" TextColor="Black"/>
             <Entry Placeholder="Password" Text="{Binding Password}" TextColor="Black" />
             <Entry Placeholder="Confirm Password" Text="{Binding ConfirmPassword}" TextColor="Black"/>
-            <Button Text="Register" Command="{Binding RegisterCommand}"/>
-            <Button Text="Login" Command="{Binding LoginCommand}"/>
+            <Button Text="Register" Command="{Binding RegisterCommand}" IsEnabled="True"
+                        CornerRadius="40"/>
+            <Button Text="Login" Command="{Binding LoginCommand}" IsEnabled="True"
+                        CornerRadius="40"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace Hublov.ViewModels
 {
-    internal class PageService : IPageService
+    public class PageService : IPageService
     {
         public Page page { get; set; } = Application.Current.MainPage;
 

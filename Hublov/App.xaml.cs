@@ -21,7 +21,11 @@ namespace Hublov
             
             //    MainPage = new NavigationPage(new Swiper());
             //else
-                MainPage = new NavigationPage(new RegistrationPage());
+                //MainPage = new NavigationPage(new LoginPage());
+            if (DependencyService.Get<IFirebaseAuthenticator>().IsUserLoggedIn())
+                MainPage = new AppShell();
+            else
+                MainPage = new LoginPage();
         }
 
         protected override void OnStart()

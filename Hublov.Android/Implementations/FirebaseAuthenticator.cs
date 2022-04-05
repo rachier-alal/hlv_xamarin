@@ -48,5 +48,14 @@ namespace Hublov.Droid.Implementations
             var token = await FirebaseAuth.Instance.CurrentUser.GetIdToken(false).AsAsync<GetTokenResult>();
             return token.Token;
         }
+
+        bool IFirebaseAuthenticator.IsUserLoggedIn()
+        {
+            if (FirebaseAuth.Instance.CurrentUser != null)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

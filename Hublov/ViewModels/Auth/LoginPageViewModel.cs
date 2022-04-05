@@ -83,7 +83,7 @@ namespace Hublov.ViewModels.Auth
 
         private async Task RegisterButtonClicked()
         {
-            await Navigation.PushAsync(new NewItemPage());
+            await Navigation.PushAsync(new RegistrationPage());
         }
 
         private async void OnLoginButtonClicked()
@@ -108,7 +108,7 @@ namespace Hublov.ViewModels.Auth
             }
             catch (Exception e)
             {
-               
+                await PageService.DisplayAlert("Error", "Login failed !" + e, "Ok");
             }
         }
 

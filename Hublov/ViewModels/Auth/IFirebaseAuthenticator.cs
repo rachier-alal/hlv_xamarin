@@ -9,7 +9,7 @@ namespace Hublov.ViewModels.Auth
     {
         Task<string> LoginWithEmailPassword(string email, string password);
         Task<string> SignupWithEmailPassword(string email, string password);
-
+        bool IsUserLoggedIn();
     }
     
 }

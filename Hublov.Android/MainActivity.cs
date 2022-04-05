@@ -42,5 +42,6 @@ namespace Hublov.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+        public bool IsUserLoggedIn() => FirebaseAuth.Instance.CurrentUser != null;
     }
 }

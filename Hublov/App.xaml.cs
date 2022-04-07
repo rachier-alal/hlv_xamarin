@@ -16,12 +16,6 @@ namespace Hublov
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            //MainPage = new AppShell();
-            //MainPage = new NavigationPage(new Swiper());
-            
-            //    MainPage = new NavigationPage(new Swiper());
-            //else
-                //MainPage = new NavigationPage(new LoginPage());
             if (DependencyService.Get<IFirebaseAuthenticator>().IsUserLoggedIn())
                 MainPage = new AppShell();
             else

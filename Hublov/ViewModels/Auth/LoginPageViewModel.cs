@@ -95,10 +95,9 @@ namespace Hublov.ViewModels.Auth
                     var token = await DependencyService.Get<IFirebaseAuthenticator>().LoginWithEmailPassword(Email, Password);
                     if (token != null )
                     {
-                        //await Shell.Current.GoToAsync(nameof(Swiper));
-                        await Navigation.PushAsync(new AboutPage());
+                        await Navigation.PushAsync(new AppShell());
                     }
-                    //await PageService.DisplayAlert("Success", "User Created with token ", "Ok");
+                    
 
                 }
                 else

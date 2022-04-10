@@ -20,7 +20,8 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="About" Icon="icon_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Title="About" Icon="icon_about.png" Route="AboutBlank" ContentTemplate="{DataTemplate local:AboutBlank}" />
+        <!--<ShellContent Title="About" Icon="icon_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />-->
         <ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
         <ShellContent Title="Swipe" Icon="icon_feed.png" Route="Swiper" ContentTemplate="{DataTemplate local:Swiper}" />
     </TabBar>

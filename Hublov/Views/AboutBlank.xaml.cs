@@ -1,33 +1,38 @@
 ﻿using System;
-using Firebase.Database.Query;
-using Xamarin.Forms;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Firebase.Database;
+using Firebase.Database.Query;
 using Hublov.Models;
 using Hublov.ViewModels.Auth;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Hublov.Views
 {
-    public partial class AboutPage : ContentPage 
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AboutBlank : ContentPage
     {
         FirebaseClient firebaseClient = new FirebaseClient("https://hubforms-a8b20-default-rtdb.europe-west1.firebasedatabase.app/");
-        public AboutPage()
+
+        public AboutBlank()
         {
             InitializeComponent();
-            //BindingContext = new AboutViewModel();
         }
-
         private void Button_Clicked(object sender, EventArgs e)
         {
-            if(status.Text != "") {
+            if (status.Text != "")
+            {
                 firebaseClient.Child("Statuses").PostAsync(new MyDatabaseRecord
                 {
                     StatusText = status.Text,
                     UserID = DependencyService.Get<IFirebaseAuthenticator>().UserDetails()
 
-                }) ;
+                });
             }
             status.Text = "";
         }
-       
     }
 }

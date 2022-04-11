@@ -21,18 +21,18 @@ namespace Hublov.Views
         {
             InitializeComponent();
         }
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            if (status.Text != "")
-            {
-                firebaseClient.Child("Statuses").PostAsync(new MyDatabaseRecord
-                {
-                    StatusText = status.Text,
-                    UserID = DependencyService.Get<IFirebaseAuthenticator>().UserDetails()
+        //private void Button_Clicked(object sender, EventArgs e)
+        //{
+        //    if (status.Text != "")
+        //    {
+        //        firebaseClient.Child("Statuses").PostAsync(new MyDatabaseRecord
+        //        {
+        //            StatusText = status.Text,
+        //            UserID = DependencyService.Get<IFirebaseAuthenticator>().UserDetails()
 
-                });
-            }
-            status.Text = "";
-        }
+        //        });
+        //    }
+        //    status.Text = "";
+        //}
     }
 }

@@ -19,8 +19,24 @@
             </Grid.ColumnDefinitions>
 
             <!-- 1. Profile picture-->
-            <Image Grid.Row="0" Source="https://cdn.pixabay.com/photo/2019/02/07/21/20/animals-3982204_960_720.jpg" VerticalOptions="Start" />
+            <Grid >
+                
+                <ImageButton BackgroundColor="Beige" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"
+                Source="https://img.icons8.com/external-yogi-aprelliyanto-basic-outline-yogi-aprelliyanto/344/external-plus-multimedia-yogi-aprelliyanto-basic-outline-yogi-aprelliyanto.png"
+                    HorizontalOptions="Center" Margin="20"
+                    VerticalOptions="Start" BorderWidth="2" HeightRequest="80" />
 
+                <Image VerticalOptions="Start" Margin="0"  Source="https://img.icons8.com/doodle/344/james-brown.png" Grid.Row="1" Grid.Column="0" 
+                       Grid.ColumnSpan="1" BackgroundColor="Bisque" HeightRequest="80" WidthRequest="80">
+                    </Image>
+                <Image VerticalOptions="Start" Source="https://img.icons8.com/doodle/344/user-male-skin-type-5.png" Grid.Row="1" Grid.Column="1"
+                       Grid.ColumnSpan="1" BackgroundColor="Bisque"  HeightRequest="80" WidthRequest="80">
+                        </Image>
+                <Image VerticalOptions="Start" Source="https://img.icons8.com/officel/344/user-male-skin-type-5.png" Grid.Row="1" Grid.Column="2"
+                       Grid.ColumnSpan="1" BackgroundColor="Bisque"  HeightRequest="80" WidthRequest="80">
+                            </Image>
+                
+            </Grid>
             <StackLayout Grid.Row="0" BackgroundColor="White" VerticalOptions="End">
                 <Frame CornerRadius="40" Style="{StaticResource stlMainFrame}" HorizontalOptions="Fill" >
 
@@ -76,7 +92,7 @@
                             </Picker>
                         </Frame>
                         <!--4. Save-->
-                        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" TextColor="Black" BackgroundColor="#2193f3" Text="Save" Margin="0,12,0,0" FontAttributes="Bold" FontSize="17" Padding="3" CornerRadius="70"/>
+                        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" TextColor="Bisque" BackgroundColor="Azure" Text="Save" Margin="0,12,0,0" FontAttributes="Bold" FontSize="17" Padding="3" CornerRadius="70"/>
                     </Grid>
                 </Frame>
             </StackLayout>

@@ -8,8 +8,8 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
-        <Grid BackgroundColor="LightGoldenrodYellow">
+
+        <Grid BackgroundColor="LightGoldenrodYellow" RowSpacing="44">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -27,12 +27,15 @@
                     VerticalOptions="Start" BorderWidth="2" HeightRequest="80" />
 
                 <Image VerticalOptions="Start" Margin="0"  Source="https://img.icons8.com/doodle/344/james-brown.png" Grid.Row="1" Grid.Column="0" 
-                       Grid.ColumnSpan="1" BackgroundColor="Bisque" HeightRequest="80" WidthRequest="80">
+                       Grid.ColumnSpan="1" BackgroundColor="Bisque" HeightRequest="160" WidthRequest="80">
                     </Image>
                 <Image VerticalOptions="Start" Source="https://img.icons8.com/doodle/344/user-male-skin-type-5.png" Grid.Row="1" Grid.Column="1"
-                       Grid.ColumnSpan="1" BackgroundColor="Bisque"  HeightRequest="80" WidthRequest="80">
+                       Grid.ColumnSpan="1" BackgroundColor="Bisque"  HeightRequest="160" WidthRequest="80">
                         </Image>
                 <Image VerticalOptions="Start" Source="https://img.icons8.com/officel/344/user-male-skin-type-5.png" Grid.Row="1" Grid.Column="2"
+                       Grid.ColumnSpan="1" BackgroundColor="Bisque"  HeightRequest="160" WidthRequest="80">
+                            </Image>
+                <Image VerticalOptions="Start" Source="https://img.icons8.com/officel/344/user-male-skin-type-5.png" Grid.Row="2" Grid.Column="2"
                        Grid.ColumnSpan="1" BackgroundColor="Bisque"  HeightRequest="80" WidthRequest="80">
                             </Image>
                 
@@ -64,9 +67,9 @@
                         </Frame>
     
                         <!--birthday-->
-                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Padding="0,10,0,0" Text="Birthday:" 
+                        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1" Padding="0,10,0,0" Text="Birthday:" 
                                Style="{StaticResource stlBoardTitle}" HorizontalOptions="Start" />
-                        <Frame Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                        <Frame Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"
                             Padding = "-4" CornerRadius ="20" IsClippedToBounds="true" >
                             <DatePicker x:Name="DOB"  MinimumDate="01/01/1950"   BackgroundColor="Beige" 
                             MaximumDate="01/01/2003"
@@ -81,8 +84,9 @@
                                    TextColor="#a5a2a2" FontSize="16"  />
                         </Frame>
                         <!--Gender-->
-                        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" Padding="0,10,0,0" Text="Gender:" Style="{StaticResource stlBoardTitle}" HorizontalOptions="Start" />
-                        <Frame Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+                        <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1" Padding="0,10,0,0" Text="Gender:"
+                               Style="{StaticResource stlBoardTitle}" HorizontalOptions="Start" />
+                        <Frame Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"
                             Padding = "-4" CornerRadius ="20" IsClippedToBounds="true" >
                             <Picker x:Name="Gender" BackgroundColor="Beige">
                                 <Picker.Items>
@@ -91,8 +95,15 @@
                                 </Picker.Items>
                             </Picker>
                         </Frame>
+                        <!--bio-->
+                        
+                        <Frame  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1"
+                            Padding = "-4" CornerRadius ="20" IsClippedToBounds="true" >
+                            <Entry x:Name="Bio" Placeholder="Bio" PlaceholderColor="Thistle" HorizontalOptions="Fill" 
+                                   TextColor="#a5a2a2" FontSize="16"  />
+                        </Frame>
                         <!--4. Save-->
-                        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" TextColor="Bisque" BackgroundColor="Azure" Text="Save" Margin="0,12,0,0" FontAttributes="Bold" FontSize="17" Padding="3" CornerRadius="70"/>
+                        <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" TextColor="Bisque" BackgroundColor="Azure" Text="Save" Margin="0,12,0,0" FontAttributes="Bold" FontSize="17" Padding="3" CornerRadius="70"/>
                     </Grid>
                 </Frame>
             </StackLayout>

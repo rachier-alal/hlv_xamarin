@@ -20,6 +20,7 @@ namespace Hublov.Views
         public AboutBlank()
         {
             InitializeComponent();
+            Title = "Profile Details";
         }
         //private void Button_Clicked(object sender, EventArgs e)
         //{

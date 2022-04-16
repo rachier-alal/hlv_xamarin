@@ -1,8 +1,4 @@
 ﻿using System;
-using Hublov.Views;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Hublov.Views.Auth;

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Firebase.Database;
 using Firebase.Database.Query;
 using Hublov.Models;
@@ -22,18 +18,33 @@ namespace Hublov.Views
             InitializeComponent();
             Title = "Profile Details";
         }
-        //private void Button_Clicked(object sender, EventArgs e)
-        //{
-        //    if (status.Text != "")
-        //    {
-        //        firebaseClient.Child("Statuses").PostAsync(new MyDatabaseRecord
-        //        {
-        //            StatusText = status.Text,
-        //            UserID = DependencyService.Get<IFirebaseAuthenticator>().UserDetails()
 
-        //        });
-        //    }
-        //    status.Text = "";
-        //}
+        private void Save_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime dob = DOB.Date;
+                TimeSpan diff = DateTime.Now - dob;
+            }catch(Exception ex)
+            {
+                TimeSpan diff = DateTime.Now - DateTime.Now;
+            }
+            
+            
+            if (Names.Text != "" && occupation.Text != "" && Bio.Text!= "" && Gender.Items[Gender.SelectedIndex] != "")
+            {
+                firebaseClient.Child("Statuses").PostAsync(new Hubs
+                {
+                    Name = Names.Text,
+                    Profession = occupation.Text,
+                    Gender = Gender.Items[Gender.SelectedIndex],
+                    Bio = Bio.Text,
+                    Birth = DOB.Date,
+                    UserID = DependencyService.Get<IFirebaseAuthenticator>().UserDetails()
+
+                });
+            }
+        }
+        
     }
 }

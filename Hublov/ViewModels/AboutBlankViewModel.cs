@@ -94,18 +94,17 @@ namespace Hublov.ViewModels
         {
             try
             {
-                DateTime dob = Birth;
-                TimeSpan diff = DateTime.Now - dob;
+                DateTime _dob = Birth;
+                TimeSpan diff = DateTime.Now - _dob;
             }
             catch (Exception ex)
             {
                 TimeSpan diff = DateTime.Now - DateTime.Now;
             }
 
-
-            if (Names != "" && Occupation != "" && Bio != "" && Gender != "")
+            if (Names != "" && Occupation != "" && Bio != "" && Gender != "" )
             {
-                firebaseClient.Child("Statuses").PostAsync(new Hubs
+                firebaseClient.Child("Profiles").PostAsync(new Hubs
                 {
                     Name = Names,
                     Profession = Occupation,

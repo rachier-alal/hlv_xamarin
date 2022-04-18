@@ -133,7 +133,8 @@ namespace Hublov.ViewModels.Auth
             }
             catch (Exception e)
             {
-
+                await PageService.DisplayAlert("Failed", "User Not Created " + e, "Retry");
+                await Navigation.PushAsync(new RegistrationPage());
             }
 
         }

@@ -1,4 +1,5 @@
-﻿using Hublov.Services;
+﻿using Hublov.EventListeners;
+using Hublov.Services;
 using Hublov.ViewModels.Auth;
 using Hublov.Views;
 using Hublov.Views.Auth;
@@ -14,9 +15,11 @@ namespace Hublov
         public App()
         {
             InitializeComponent();
-
+            HubsListener firebaseHelper = new HubsListener();
+            var AllHubs = firebaseHelper.GetAllPersons();
             DependencyService.Register<MockDataStore>();
             if (DependencyService.Get<IFirebaseAuthenticator>().IsUserLoggedIn())
+
                 MainPage = new AppShell();
             else
                 MainPage = new LoginPage();
